@@ -6,8 +6,8 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class DataModel (
     val name: String,
-    val cardNumber: Long,
+    val cardNumber: String,
     val period: Int,
-    val money: Int,
+    val money: Float,
     val type: Int
 ) : Parcelable

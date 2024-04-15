@@ -9,9 +9,9 @@ fun dummyData() {
     dummyItems.add(
         DataModel(
             "Anderson",
-            2423_3581_9503_2412,
+            "2423 3581 9503 2412",
             21_24,
-            3_100_30,
+            3100.30F,
             1
         )
     )
@@ -19,9 +19,9 @@ fun dummyData() {
     dummyItems.add(
         DataModel(
             "Anderson",
-            2423_3581_9503_2412,
+            "2423 3581 9503 2412",
             12_25,
-            3_100_30,
+            3100.30F,
             2
         )
     )
@@ -29,9 +29,9 @@ fun dummyData() {
     dummyItems.add(
         DataModel(
             "Anderson",
-            2423_3581_9503_2412,
+            "2423 3581 9503 2412",
             21_24,
-            3_100_30,
+            3100.30F,
             3
         )
     )

@@ -8,6 +8,7 @@ import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_2
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
+import java.text.DecimalFormat
 
 class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
@@ -55,13 +56,19 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
         return items.size
     }
 
+    fun moneyFormat(formatItem: Float): String {
+        val decimalFormat = DecimalFormat("$#,###.00")
+        return decimalFormat.format(formatItem)
+    }
+
+
 
     inner class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.cardNumber.toString()
+            binding.tvCardNumber.text = item.cardNumber
             binding.tvCardPeriod.text = item.period.toString()
-            binding.tvCardMoney.text = item.money.toString()
+            binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvFirst.setOnClickListener {
 
@@ -72,9 +79,9 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
     inner class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.cardNumber.toString()
+            binding.tvCardNumber.text = item.cardNumber
             binding.tvCardPeriod.text = item.period.toString()
-            binding.tvCardMoney.text = item.money.toString()
+            binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvSecond.setOnClickListener {
 
@@ -85,9 +92,9 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
     inner class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.cardNumber.toString()
+            binding.tvCardNumber.text = item.cardNumber
             binding.tvCardPeriod.text = item.period.toString()
-            binding.tvCardMoney.text = item.money.toString()
+            binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvThird.setOnClickListener {
 
