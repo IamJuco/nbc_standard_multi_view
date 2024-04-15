@@ -52,6 +52,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
             binding.cvFirst.setOnClickListener {
 
             }
+
         }
     }
     inner class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
@@ -66,7 +67,6 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
             }
 
         }
-
     }
     inner class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
@@ -80,6 +80,5 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
             }
 
         }
-
     }
 }
