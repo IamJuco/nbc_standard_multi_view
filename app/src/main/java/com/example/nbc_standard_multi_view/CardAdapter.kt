@@ -10,6 +10,7 @@ import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
 
 class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
             MULTI_TYPE_1 -> {
@@ -30,11 +31,24 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is MultiViewHolder1 -> holder.bind(items[position])
-            is MultiViewHolder2 -> holder.bind(items[position])
-            is MultiViewHolder3 -> holder.bind(items[position])
+        when(items[position].type) {
+            MULTI_TYPE_1 -> {
+                (holder as MultiViewHolder1).bind(items[position])
+                holder.setIsRecyclable(false)
+            }
+            MULTI_TYPE_2 -> {
+                (holder as MultiViewHolder2).bind(items[position])
+                holder.setIsRecyclable(false)
+            }
+            else -> {
+                (holder as MultiViewHolder3).bind(items[position])
+                holder.setIsRecyclable(false)
+            }
         }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return items[position].type
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +59,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
     inner class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.number.toString()
+            binding.tvCardNumber.text = item.cardNumber.toString()
             binding.tvCardPeriod.text = item.period.toString()
             binding.tvCardMoney.text = item.money.toString()
 
@@ -58,7 +72,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
     inner class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.number.toString()
+            binding.tvCardNumber.text = item.cardNumber.toString()
             binding.tvCardPeriod.text = item.period.toString()
             binding.tvCardMoney.text = item.money.toString()
 
@@ -71,7 +85,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
     inner class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.number.toString()
+            binding.tvCardNumber.text = item.cardNumber.toString()
             binding.tvCardPeriod.text = item.period.toString()
             binding.tvCardMoney.text = item.money.toString()
 
