@@ -3,7 +3,9 @@ package com.example.nbc_standard_multi_view
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.nbc_standard_multi_view.Util.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.ActivityDetailBinding
+import java.text.DecimalFormat
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,10 +28,8 @@ class DetailActivity : AppCompatActivity() {
         dataModel?.let {
             binding.tvDetailName.text = it.name
             binding.tvDetailCardNumber.text = it.cardNumber
-            binding.tvDetailCardPeriod.text = it.period.toString()
-            binding.tvDetailCardMoney.text = it.money.toString()
+            binding.tvDetailCardPeriod.text = it.period
+            binding.tvDetailCardMoney.text = moneyFormat(it.money)
         }
-
-
     }
 }

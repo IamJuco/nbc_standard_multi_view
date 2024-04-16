@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_1
 import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_2
+import com.example.nbc_standard_multi_view.Util.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
@@ -57,11 +58,6 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
         return items.size
     }
 
-    fun moneyFormat(formatItem: Float): String {
-        val decimalFormat = DecimalFormat("$#,###.00")
-        return decimalFormat.format(formatItem)
-    }
-
     inner class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(item: DataModel) {
@@ -69,7 +65,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
 
             binding.tvName.text = item.name
             binding.tvCardNumber.text = item.cardNumber
-            binding.tvCardPeriod.text = item.period.toString()
+            binding.tvCardPeriod.text = item.period
             binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvFirst.setOnClickListener {
@@ -86,7 +82,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
 
             binding.tvName.text = item.name
             binding.tvCardNumber.text = item.cardNumber
-            binding.tvCardPeriod.text = item.period.toString()
+            binding.tvCardPeriod.text = item.period
             binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvSecond.setOnClickListener {
@@ -103,7 +99,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
 
             binding.tvName.text = item.name
             binding.tvCardNumber.text = item.cardNumber
-            binding.tvCardPeriod.text = item.period.toString()
+            binding.tvCardPeriod.text = item.period
             binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvThird.setOnClickListener {
