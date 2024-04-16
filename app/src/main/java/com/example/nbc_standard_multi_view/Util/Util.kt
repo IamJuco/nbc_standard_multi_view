@@ -1,6 +1,8 @@
 package com.example.nbc_standard_multi_view.Util
 
 import com.example.nbc_standard_multi_view.DataModel
+import java.math.BigDecimal
+import java.math.RoundingMode
 import java.text.DecimalFormat
 
 val dummyItems = mutableListOf<DataModel>()
@@ -39,6 +41,13 @@ fun dummyData() {
 }
 
 fun moneyFormat(formatItem: Float): String {
-    val decimalFormat = DecimalFormat("$#,###.00")
-    return decimalFormat.format(formatItem)
+    val bigDecimal = BigDecimal(formatItem.toString())
+    val decimalFormat = DecimalFormat("$#,##0.00")
+    return decimalFormat.format(bigDecimal)
+}
+
+fun mainMoneyFormat(formatItem: Float) : String {
+    val bigDecimal = BigDecimal(formatItem.toString())
+    val decimalFormat = DecimalFormat("$#,##,##0.00")
+    return decimalFormat.format(bigDecimal)
 }

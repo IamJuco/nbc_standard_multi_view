@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.nbc_standard_multi_view.Util.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.ActivityDetailBinding
-import java.text.DecimalFormat
 
 class DetailActivity : AppCompatActivity() {
 
