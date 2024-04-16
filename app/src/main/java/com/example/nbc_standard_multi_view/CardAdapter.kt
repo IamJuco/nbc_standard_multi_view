@@ -1,5 +1,6 @@
 package com.example.nbc_standard_multi_view
 
+import android.content.Intent
 import android.view.LayoutInflater.*
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -61,43 +62,54 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
         return decimalFormat.format(formatItem)
     }
 
-
-
     inner class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
+
         fun bind(item: DataModel) {
+            val context = binding.root.context
+
             binding.tvName.text = item.name
             binding.tvCardNumber.text = item.cardNumber
             binding.tvCardPeriod.text = item.period.toString()
             binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvFirst.setOnClickListener {
-
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("CardData", item)
+                context.startActivity(intent)
             }
 
         }
     }
     inner class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
+            val context = binding.root.context
+
             binding.tvName.text = item.name
             binding.tvCardNumber.text = item.cardNumber
             binding.tvCardPeriod.text = item.period.toString()
             binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvSecond.setOnClickListener {
-
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("CardData", item)
+                context.startActivity(intent)
             }
 
         }
     }
     inner class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
+            val context = binding.root.context
+
             binding.tvName.text = item.name
             binding.tvCardNumber.text = item.cardNumber
             binding.tvCardPeriod.text = item.period.toString()
             binding.tvCardMoney.text = moneyFormat(item.money)
 
             binding.cvThird.setOnClickListener {
-
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra("CardData", item)
+                context.startActivity(intent)
             }
 
         }
