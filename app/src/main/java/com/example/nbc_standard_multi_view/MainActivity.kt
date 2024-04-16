@@ -24,6 +24,5 @@ class MainActivity : AppCompatActivity() {
         binding.rvMain.layoutManager = LinearLayoutManager(this)
 
         binding.tvMainMoney.text = mainMoneyFormat(285856.20F)
-
     }
 }

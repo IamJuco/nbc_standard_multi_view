@@ -72,7 +72,6 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
                 intent.putExtra("CardData", item)
                 context.startActivity(intent)
             }
-
         }
     }
     inner class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
@@ -89,7 +88,6 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
                 intent.putExtra("CardData", item)
                 context.startActivity(intent)
             }
-
         }
     }
     inner class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
@@ -106,7 +104,6 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
                 intent.putExtra("CardData", item)
                 context.startActivity(intent)
             }
-
         }
     }
 }

@@ -2,13 +2,11 @@ package com.example.nbc_standard_multi_view.Util
 
 import com.example.nbc_standard_multi_view.DataModel
 import java.math.BigDecimal
-import java.math.RoundingMode
 import java.text.DecimalFormat
 
 val dummyItems = mutableListOf<DataModel>()
 
 fun dummyData() {
-
     dummyItems.add(
         DataModel(
             "Anderson",
@@ -18,7 +16,6 @@ fun dummyData() {
             1
         )
     )
-
     dummyItems.add(
         DataModel(
             "Anderson",
@@ -28,7 +25,6 @@ fun dummyData() {
             2
         )
     )
-
     dummyItems.add(
         DataModel(
             "Anderson",
