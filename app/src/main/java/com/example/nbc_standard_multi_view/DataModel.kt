@@ -1,8 +1,13 @@
 package com.example.nbc_standard_multi_view
 
-data class DataModel (
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class DataModel(
     val name: String,
-    val number: Int,
-    val period: Int,
-    val money: Int
-)
+    val cardNumber: String,
+    val period: String,
+    val money: Float,
+    val type: Int
+) : Parcelable
