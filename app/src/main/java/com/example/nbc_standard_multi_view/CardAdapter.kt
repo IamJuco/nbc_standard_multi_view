@@ -57,52 +57,58 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
         return items.size
     }
 
-    inner class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(item: DataModel) {
             val context = binding.root.context
 
-            binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.cardNumber
-            binding.tvCardPeriod.text = item.period
-            binding.tvCardMoney.text = moneyFormat(item.money)
+            binding.apply {
+                tvName.text = item.name
+                tvCardNumber.text = item.cardNumber
+                tvCardPeriod.text = item.period
+                tvCardMoney.text = moneyFormat(item.money)
 
-            binding.cvFirst.setOnClickListener {
-                val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("CardData", item)
-                context.startActivity(intent)
+                cvFirst.setOnClickListener {
+                    val intent = Intent(context, DetailActivity::class.java)
+                    intent.putExtra("CardData", item)
+                    context.startActivity(intent)
+                }
             }
         }
     }
-    inner class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             val context = binding.root.context
 
-            binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.cardNumber
-            binding.tvCardPeriod.text = item.period
-            binding.tvCardMoney.text = moneyFormat(item.money)
+            binding.apply {
+                tvName.text = item.name
+                tvCardNumber.text = item.cardNumber
+                tvCardPeriod.text = item.period
+                tvCardMoney.text = moneyFormat(item.money)
 
-            binding.cvSecond.setOnClickListener {
-                val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("CardData", item)
-                context.startActivity(intent)
+                cvSecond.setOnClickListener {
+                    val intent = Intent(context, DetailActivity::class.java)
+                    intent.putExtra("CardData", item)
+                    context.startActivity(intent)
+                }
             }
         }
     }
-    inner class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: DataModel) {
             val context = binding.root.context
 
-            binding.tvName.text = item.name
-            binding.tvCardNumber.text = item.cardNumber
-            binding.tvCardPeriod.text = item.period
-            binding.tvCardMoney.text = moneyFormat(item.money)
+            binding.apply {
+                tvName.text = item.name
+                tvCardNumber.text = item.cardNumber
+                tvCardPeriod.text = item.period
+                tvCardMoney.text = moneyFormat(item.money)
 
-            binding.cvThird.setOnClickListener {
-                val intent = Intent(context, DetailActivity::class.java)
-                intent.putExtra("CardData", item)
-                context.startActivity(intent)
+                cvThird.setOnClickListener {
+                    val intent = Intent(context, DetailActivity::class.java)
+                    intent.putExtra("CardData", item)
+                    context.startActivity(intent)
+                }
             }
         }
     }
