@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_1
 import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_2
+import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_3
 import com.example.nbc_standard_multi_view.Util.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
@@ -25,10 +26,11 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
                 MultiViewHolder2(binding)
             }
 
-            else -> {
+            MULTI_TYPE_3 -> {
                 val binding = RvThirdItemBinding.inflate(from(parent.context), parent, false)
                 MultiViewHolder3(binding)
             }
+            else -> throw Exception("Type Error")
         }
     }
 
@@ -42,7 +44,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
                 (holder as MultiViewHolder2).bind(items[position])
                 holder.setIsRecyclable(false)
             }
-            else -> {
+            MULTI_TYPE_3 -> {
                 (holder as MultiViewHolder3).bind(items[position])
                 holder.setIsRecyclable(false)
             }
