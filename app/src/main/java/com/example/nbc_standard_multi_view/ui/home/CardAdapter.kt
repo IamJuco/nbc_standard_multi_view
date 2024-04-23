@@ -1,4 +1,4 @@
-package com.example.nbc_standard_multi_view.ui
+package com.example.nbc_standard_multi_view.ui.home
 
 import android.content.Intent
 import android.view.LayoutInflater.*
@@ -9,9 +9,11 @@ import com.example.nbc_standard_multi_view.data.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
+import com.example.nbc_standard_multi_view.ui.detail.DetailActivity
 import com.example.nbc_standard_multi_view.util.Constants
 
-class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class CardAdapter(private var items: List<DataModel>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val MULTI_TYPE_1 = 1
@@ -25,7 +27,7 @@ class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<Rec
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when(viewType){
+        return when (viewType) {
             MULTI_TYPE_1 -> {
                 val binding = RvFirstItemBinding.inflate(from(parent.context), parent, false)
                 MultiViewHolder1(binding)
@@ -40,20 +42,23 @@ class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<Rec
                 val binding = RvThirdItemBinding.inflate(from(parent.context), parent, false)
                 MultiViewHolder3(binding)
             }
+
             else -> throw Exception("Type Error")
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(items[position].type) {
+        when (items[position].type) {
             MULTI_TYPE_1 -> {
                 (holder as MultiViewHolder1).bind(items[position])
                 holder.setIsRecyclable(false)
             }
+
             MULTI_TYPE_2 -> {
                 (holder as MultiViewHolder2).bind(items[position])
                 holder.setIsRecyclable(false)
             }
+
             MULTI_TYPE_3 -> {
                 (holder as MultiViewHolder3).bind(items[position])
                 holder.setIsRecyclable(false)
@@ -69,7 +74,8 @@ class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<Rec
         return items.size
     }
 
-    class MultiViewHolder1(private val binding: RvFirstItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class MultiViewHolder1(private val binding: RvFirstItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: DataModel) {
             val context = binding.root.context
@@ -88,7 +94,9 @@ class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<Rec
             }
         }
     }
-    class MultiViewHolder2(private val binding: RvSecondItemBinding) : RecyclerView.ViewHolder(binding.root){
+
+    class MultiViewHolder2(private val binding: RvSecondItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: DataModel) {
             val context = binding.root.context
 
@@ -106,7 +114,9 @@ class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<Rec
             }
         }
     }
-    class MultiViewHolder3(private val binding: RvThirdItemBinding) : RecyclerView.ViewHolder(binding.root){
+
+    class MultiViewHolder3(private val binding: RvThirdItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: DataModel) {
             val context = binding.root.context
 

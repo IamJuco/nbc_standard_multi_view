@@ -1,4 +1,4 @@
-package com.example.nbc_standard_multi_view.ui
+package com.example.nbc_standard_multi_view.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ class DetailViewModel : ViewModel() {
     private val _dataModel = MutableLiveData<DataModel>()
     val detailData: LiveData<DataModel> get() = _dataModel
 
-//    fun setDataModel(data: DataModel) {
-//        _dataModel.value = data
-//    }
+    fun setDataModel(data: DataModel?) {
+        _dataModel.value = data
+    }
 }

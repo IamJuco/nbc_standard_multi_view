@@ -1,4 +1,4 @@
-package com.example.nbc_standard_multi_view.ui
+package com.example.nbc_standard_multi_view.ui.detail
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -29,17 +29,25 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.detailData.observe(this) {
-            updateUI(it)
+        if (dataModel != null) {
+            viewModel.setDataModel(dataModel)
         }
+
+        setUpObserver()
     }
 
     private fun updateUI(model: DataModel) {
-        dataModel?.let {
+        model.let {
             binding.tvDetailName.text = it.name
             binding.tvDetailCardNumber.text = it.cardNumber
             binding.tvDetailCardPeriod.text = it.period
             binding.tvDetailCardMoney.text = moneyFormat(it.money)
+        }
+    }
+
+    private fun setUpObserver() {
+        viewModel.detailData.observe(this) { dataModel ->
+            dataModel?.let { updateUI(it) }
         }
     }
 }
