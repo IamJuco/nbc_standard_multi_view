@@ -11,12 +11,17 @@ import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
 import com.example.nbc_standard_multi_view.util.Constants
 
-class CardAdapter(private val items: List<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class CardAdapter(private var items: List<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     companion object {
         const val MULTI_TYPE_1 = 1
         const val MULTI_TYPE_2 = 2
         const val MULTI_TYPE_3 = 3
+    }
+
+    fun updateData(data: List<DataModel>) {
+        items = data
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
