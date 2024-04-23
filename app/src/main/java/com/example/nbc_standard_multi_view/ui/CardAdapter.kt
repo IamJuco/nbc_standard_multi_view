@@ -9,6 +9,7 @@ import com.example.nbc_standard_multi_view.data.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
+import com.example.nbc_standard_multi_view.util.Constants
 
 class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
@@ -76,7 +77,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
 
                 cvFirst.setOnClickListener {
                     val intent = Intent(context, DetailActivity::class.java)
-                    intent.putExtra("CardData", item)
+                    intent.putExtra(Constants.KEY_CARD, item)
                     context.startActivity(intent)
                 }
             }
@@ -94,7 +95,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
 
                 cvSecond.setOnClickListener {
                     val intent = Intent(context, DetailActivity::class.java)
-                    intent.putExtra("CardData", item)
+                    intent.putExtra(Constants.KEY_CARD, item)
                     context.startActivity(intent)
                 }
             }
@@ -112,7 +113,7 @@ class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adap
 
                 cvThird.setOnClickListener {
                     val intent = Intent(context, DetailActivity::class.java)
-                    intent.putExtra("CardData", item)
+                    intent.putExtra(Constants.KEY_CARD, item)
                     context.startActivity(intent)
                 }
             }

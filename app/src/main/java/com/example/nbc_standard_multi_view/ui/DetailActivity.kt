@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.nbc_standard_multi_view.model.DataModel
 import com.example.nbc_standard_multi_view.data.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.ActivityDetailBinding
+import com.example.nbc_standard_multi_view.util.Constants
 
 class DetailActivity : AppCompatActivity() {
 
@@ -15,9 +16,9 @@ class DetailActivity : AppCompatActivity() {
 
     private val dataModel by lazy {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("CardData", DataModel::class.java)
+            intent.getParcelableExtra(Constants.KEY_CARD, DataModel::class.java)
         } else {
-            intent.getParcelableExtra("CardData")
+            intent.getParcelableExtra(Constants.KEY_CARD)
         }
     }
 
