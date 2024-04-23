@@ -1,12 +1,11 @@
-package com.example.nbc_standard_multi_view.ui
+package com.example.nbc_standard_multi_view.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nbc_standard_multi_view.data.mainMoneyFormat
-import com.example.nbc_standard_multi_view.data.returnDummyData
 import com.example.nbc_standard_multi_view.databinding.ActivityMainBinding
-import com.example.nbc_standard_multi_view.model.DataModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,24 +13,29 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private lateinit var cardAdapter : CardAdapter
+    private val viewModel: MainViewModel by viewModels()
+
+    private lateinit var cardAdapter: CardAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         setUpRecyclerView()
+        setUpObserver()
 
         binding.tvMainMoney.text = mainMoneyFormat(285856.20F)
     }
 
     private fun setUpRecyclerView() {
-        cardAdapter = CardAdapter(fetchDummyData())
+        cardAdapter = CardAdapter(emptyList())
         binding.rvMain.adapter = cardAdapter
         binding.rvMain.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun fetchDummyData(): List<DataModel> {
-        return returnDummyData()
+    private fun setUpObserver() {
+        viewModel.mainData.observe(this) {
+            cardAdapter.updateData(it)
+        }
     }
 }
