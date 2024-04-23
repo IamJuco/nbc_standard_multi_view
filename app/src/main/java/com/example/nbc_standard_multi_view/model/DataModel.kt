@@ -1,4 +1,4 @@
-package com.example.nbc_standard_multi_view
+package com.example.nbc_standard_multi_view.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
