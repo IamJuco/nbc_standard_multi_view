@@ -1,8 +1,6 @@
-package com.example.nbc_standard_multi_view.util
+package com.example.nbc_standard_multi_view.data
 
-import com.example.nbc_standard_multi_view.DataModel
-import java.math.BigDecimal
-import java.text.DecimalFormat
+import com.example.nbc_standard_multi_view.model.DataModel
 
 val dummyItems = mutableListOf<DataModel>()
 
@@ -34,16 +32,4 @@ fun dummyData() {
             3
         )
     )
-}
-
-fun moneyFormat(formatItem: Float): String {
-    val bigDecimal = BigDecimal(formatItem.toString())
-    val decimalFormat = DecimalFormat("$#,##0.00")
-    return decimalFormat.format(bigDecimal)
-}
-
-fun mainMoneyFormat(formatItem: Float) : String {
-    val bigDecimal = BigDecimal(formatItem.toString())
-    val decimalFormat = DecimalFormat("$#,##,##0.00")
-    return decimalFormat.format(bigDecimal)
 }

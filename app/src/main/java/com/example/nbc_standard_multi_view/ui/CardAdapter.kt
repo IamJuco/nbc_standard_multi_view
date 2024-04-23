@@ -1,18 +1,22 @@
-package com.example.nbc_standard_multi_view
+package com.example.nbc_standard_multi_view.ui
 
 import android.content.Intent
 import android.view.LayoutInflater.*
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nbc_standard_multi_view.util.MULTI_TYPE_1
-import com.example.nbc_standard_multi_view.util.MULTI_TYPE_2
-import com.example.nbc_standard_multi_view.util.MULTI_TYPE_3
-import com.example.nbc_standard_multi_view.util.moneyFormat
+import com.example.nbc_standard_multi_view.model.DataModel
+import com.example.nbc_standard_multi_view.data.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
 
 class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+
+    companion object {
+        const val MULTI_TYPE_1 = 1
+        const val MULTI_TYPE_2 = 2
+        const val MULTI_TYPE_3 = 3
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){

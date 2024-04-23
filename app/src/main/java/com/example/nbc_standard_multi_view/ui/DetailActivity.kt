@@ -1,9 +1,10 @@
-package com.example.nbc_standard_multi_view
+package com.example.nbc_standard_multi_view.ui
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.nbc_standard_multi_view.util.moneyFormat
+import com.example.nbc_standard_multi_view.model.DataModel
+import com.example.nbc_standard_multi_view.data.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
