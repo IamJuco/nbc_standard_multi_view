@@ -4,10 +4,10 @@ import android.content.Intent
 import android.view.LayoutInflater.*
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_1
-import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_2
-import com.example.nbc_standard_multi_view.Util.MULTI_TYPE_3
-import com.example.nbc_standard_multi_view.Util.moneyFormat
+import com.example.nbc_standard_multi_view.util.MULTI_TYPE_1
+import com.example.nbc_standard_multi_view.util.MULTI_TYPE_2
+import com.example.nbc_standard_multi_view.util.MULTI_TYPE_3
+import com.example.nbc_standard_multi_view.util.moneyFormat
 import com.example.nbc_standard_multi_view.databinding.RvFirstItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding

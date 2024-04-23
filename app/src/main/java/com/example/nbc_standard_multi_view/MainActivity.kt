@@ -3,9 +3,9 @@ package com.example.nbc_standard_multi_view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nbc_standard_multi_view.Util.dummyData
-import com.example.nbc_standard_multi_view.Util.dummyItems
-import com.example.nbc_standard_multi_view.Util.mainMoneyFormat
+import com.example.nbc_standard_multi_view.util.dummyData
+import com.example.nbc_standard_multi_view.util.dummyItems
+import com.example.nbc_standard_multi_view.util.mainMoneyFormat
 import com.example.nbc_standard_multi_view.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

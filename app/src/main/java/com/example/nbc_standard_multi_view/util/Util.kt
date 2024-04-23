@@ -1,4 +1,4 @@
-package com.example.nbc_standard_multi_view.Util
+package com.example.nbc_standard_multi_view.util
 
 import com.example.nbc_standard_multi_view.DataModel
 import java.math.BigDecimal
