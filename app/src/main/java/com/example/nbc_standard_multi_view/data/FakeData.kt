@@ -2,9 +2,10 @@ package com.example.nbc_standard_multi_view.data
 
 import com.example.nbc_standard_multi_view.model.DataModel
 
-val dummyItems = mutableListOf<DataModel>()
+fun returnDummyData(): List<DataModel> {
 
-fun dummyData() {
+    val dummyItems = mutableListOf<DataModel>()
+
     dummyItems.add(
         DataModel(
             "Anderson",
@@ -32,4 +33,6 @@ fun dummyData() {
             3
         )
     )
+
+    return dummyItems
 }

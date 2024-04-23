@@ -11,7 +11,7 @@ import com.example.nbc_standard_multi_view.databinding.RvSecondItemBinding
 import com.example.nbc_standard_multi_view.databinding.RvThirdItemBinding
 import com.example.nbc_standard_multi_view.util.Constants
 
-class CardAdapter(private val items: MutableList<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class CardAdapter(private val items: List<DataModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     companion object {
         const val MULTI_TYPE_1 = 1
